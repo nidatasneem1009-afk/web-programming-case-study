@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Model and Positioning</title>
+<style>
+  *{box-sizing:border-box}
+  body{font-family:Arial;margin:0;height:2000px;background:#fafafa}
+  .navbar{position:fixed;top:0;left:0;width:100%;background:#222;color:#fff;padding:12px;z-index:10}
+  .wrap{padding:70px 15px 15px}
+  .box{width:90%;max-width:350px;padding:20px;border:5px solid navy;margin:15px;background:#cde}
+  .static{position:static}
+  .relative{position:relative;top:15px;left:30px;background:#cfc}
+  .parent{position:relative;height:180px;background:#ddd;border:2px solid #555;margin:15px}
+  .absolute{position:absolute;top:20px;right:20px;width:140px;height:80px;background:#fc9;padding:5px}
+  .sticky{position:sticky;top:50px;background:gold;padding:10px;border:2px solid #333;margin:15px}
+  .fixed-btn{position:fixed;bottom:15px;right:15px;background:crimson;color:#fff;padding:10px 15px;border-radius:20px}
+</style>
+</head>
+<body>
+  <div class="navbar">Fixed Navbar (position: fixed)</div>
+  <div class="wrap">
+    <div class="box static">Static: width + padding(20) + border(5) + margin(15)</div>
+    <div class="box relative">Relative: shifted from its normal place</div>
+    <div class="parent">Parent (relative)<div class="absolute">Absolute child</div></div>
+    <div class="sticky">Sticky: scroll down, I stick below the navbar</div>
+    <p>Scroll the page to see the fixed and sticky behaviour.</p>
+  </div>
+  <div class="fixed-btn">Fixed Button</div>
+</body>
+</html>

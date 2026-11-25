@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+ body{font-family:Arial;background:#f0f2f5;display:flex;justify-content:center;padding:20px}
+ form{background:#fff;padding:25px;border-radius:10px;width:330px;box-shadow:0 2px 8px #0003}
+ input{width:100%;padding:8px;margin:4px 0;box-sizing:border-box} .err{color:red;font-size:12px;height:14px}
+ button{width:100%;padding:10px;background:#0b3d91;color:#fff;border:0;border-radius:5px;margin-top:10px}
+</style>
+</head>
+<body>
+<form id="f" onsubmit="return validate()" novalidate>
+  <h2>Register</h2>
+  <input id="name" placeholder="Full Name"><div class="err" id="e1"></div>
+  <input id="email" placeholder="Email"><div class="err" id="e2"></div>
+  <input id="mobile" placeholder="Mobile Number"><div class="err" id="e3"></div>
+  <input type="password" id="pwd" placeholder="Password"><div class="err" id="e4"></div>
+  <input type="number" id="age" placeholder="Age"><div class="err" id="e5"></div>
+  <button type="submit">Register</button>
+</form>
+<script>
+function validate() {
+  var ok = true;
+  function check(id, errId, cond, msg) {
+    document.getElementById(errId).innerText = cond ? "" : msg;
+    if (!cond) ok = false;
+  }
+  var name = document.getElementById("name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var mobile = document.getElementById("mobile").value.trim();
+  var pwd = document.getElementById("pwd").value;
+  var age = Number(document.getElementById("age").value);
+
+  check("name", "e1", /^[A-Za-z ]{3,}$/.test(name), "Name: letters only, min 3 characters");
+  check("email", "e2", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), "Enter a valid email address");
+  check("mobile", "e3", /^[6-9]\d{9}$/.test(mobile), "Mobile must be 10 digits, starting with 6-9");
+  check("pwd", "e4", /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(pwd),
+        "Min 8 chars with upper, lower and a digit");
+  check("age", "e5", age >= 17 && age <= 60, "Age must be between 17 and 60");
+
+  if (ok) { alert("Registration successful!"); document.getElementById("f").reset(); }
+  return false;
+}</script>
+</body>
+</html>

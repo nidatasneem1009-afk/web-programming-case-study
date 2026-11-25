@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><title>CSS Basics</title>
+<style>
+  body{background-color:#f4f6f8;font-family:Georgia,serif;margin:0;padding:20px}      /* element selector */
+  h1{color:#fff;background:linear-gradient(90deg,#0b3d91,#6a11cb);padding:20px;text-align:center;border-radius:8px}
+  .box{border:3px solid #0b3d91;margin:20px auto;padding:15px;width:70%;background:#fff} /* class selector */
+  #special{border:3px dashed crimson;color:crimson;font-size:20px;font-weight:bold}      /* id selector */
+  p.note{border-left:6px solid orange;padding-left:10px;font-style:italic}               /* element.class */
+  ul li{color:darkgreen;font-family:Verdana,sans-serif}                                  /* descendant */
+  h2,h3{text-transform:uppercase;letter-spacing:2px}                                     /* group */
+  a:hover{color:red;text-decoration:none}                                                /* pseudo-class */
+  div > p:first-child{background:#ffffcc}                                                /* child selector */
+  .hero{background:url('https://picsum.photos/id/1018/800/200') no-repeat center/cover;color:#fff;
+        height:150px;display:flex;align-items:center;justify-content:center;font-size:28px}
+</style>
+</head>
+<body>
+  <h1>CSS Selectors, Colors &amp; Fonts</h1>
+  <div class="hero">Background Image Property</div>
+  <div class="box"><h2>Class Selector</h2><p>First paragraph (child selector).</p>
+    <p class="note">This is a note paragraph.</p></div>
+  <div class="box" id="special">ID selector with dashed border</div>
+  <div class="box"><h3>Fruits</h3><ul><li>Apple</li><li>Mango</li></ul>
+    <a href="#">Hover over this link</a></div>
+</body>
+</html>

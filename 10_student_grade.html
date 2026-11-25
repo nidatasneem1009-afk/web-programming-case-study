@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Grade</title>
+<style>body{font-family:Arial;margin:20px} input,button,select{padding:6px;margin:4px} #out{margin-top:10px;padding:10px;background:#eef;border-radius:6px}</style>
+</head>
+<body>
+<h2>Student Grade Calculator</h2>
+<input id="name" placeholder="Student name"><br>
+<input type="number" id="m1" placeholder="Maths (100)"><input type="number" id="m2" placeholder="Physics (100)"><br>
+<input type="number" id="m3" placeholder="Chemistry (100)"><input type="number" id="m4" placeholder="English (100)"><br>
+<button onclick="grade()">Get Grade</button>
+<div id="out"></div>
+<script>
+function grade() {
+  var name = document.getElementById("name").value || "Student";
+  var total = 0;
+  for (var i = 1; i <= 4; i++) total += Number(document.getElementById("m" + i).value);
+  var pct = total / 4;                       // 4 subjects x 100 = 400 marks
+  var g;
+  if (pct >= 90) g = "A+";
+  else if (pct >= 75) g = "A";
+  else if (pct >= 60) g = "B";
+  else if (pct >= 40) g = "C";
+  else g = "F";
+  var remark;
+  switch (g) {
+    case "A+": remark = "Outstanding"; break;
+    case "A":  remark = "Excellent"; break;
+    case "B":  remark = "Good"; break;
+    case "C":  remark = "Average"; break;
+    default:   remark = "Fail - Try again";
+  }
+  document.getElementById("out").innerHTML = "<b>" + name + "</b><br>Total: " + total + "/400<br>Percentage: "
+    + pct.toFixed(2) + "%<br>Grade: " + g + "<br>Remark: " + remark;
+}</script>
+</body>
+</html>

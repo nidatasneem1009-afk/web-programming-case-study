@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Handling</title>
+<style>
+ body{font-family:Arial;margin:20px} .hover{width:220px;padding:20px;background:#90caf9;margin:10px 0}
+ input,select,button{padding:6px;margin:5px 0}
+</style>
+</head>
+<body>
+<h2>Event Handling Demo</h2>
+<button onclick="alert('Button clicked (onclick)')">Click Me</button>
+<div class="hover" onmouseover="this.style.background='#f48fb1'; this.innerText='Mouse is over me'"
+     onmouseout="this.style.background='#90caf9'; this.innerText='Hover over me (onmouseover)'">Hover over me (onmouseover)</div>
+<input type="text" id="t" placeholder="Type here (onkeyup)" onkeyup="document.getElementById('k').innerText = this.value.toUpperCase()">
+<p>You typed: <b id="k"></b></p>
+<select onchange="document.body.style.backgroundColor = this.value">
+  <option value="white">White</option><option value="#e8f5e9">Green</option><option value="#fff3e0">Orange</option>
+</select> (onchange - changes background)
+<form onsubmit="return handleSubmit()">
+  <br><input type="text" id="user" placeholder="Enter your name">
+  <input type="submit" value="Submit (onsubmit)">
+</form>
+<p id="res"></p>
+<script>
+function handleSubmit() {
+  var n = document.getElementById("user").value.trim();
+  if (n === "") { alert("Please enter your name"); return false; }
+  document.getElementById("res").innerText = "Welcome, " + n + "!";
+  return false;   // stop page reload
+}</script>
+</body>
+</html>

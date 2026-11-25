@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrays and Strings</title>
+<style>body{font-family:Arial;margin:20px} input,button,select{padding:6px;margin:4px} #out{margin-top:10px;padding:10px;background:#eef;border-radius:6px}</style>
+</head>
+<body>
+<h2>Array and String Functions</h2>
+<div id="out"></div>
+<script>
+var out = document.getElementById("out");
+function show(t, v) { out.innerHTML += "<b>" + t + ":</b> " + v + "<br>"; }
+
+var arr = [45, 12, 78, 23, 9, 56];
+show("Original array", arr);
+
+function searchArray(a, key) { return a.indexOf(key) !== -1 ? "Found at index " + a.indexOf(key) : "Not found"; }
+function sortArray(a) { return [...a].sort((x, y) => x - y); }
+function reverseArray(a) { return [...a].reverse(); }
+function concatArray(a, b) { return a.concat(b); }
+
+show("Search 78", searchArray(arr, 78));
+show("Sorted (ascending)", sortArray(arr));
+show("Reversed", reverseArray(arr));
+show("Concatenated with [1,2]", concatArray(arr, [1, 2]));
+show("Max / Min", Math.max(...arr) + " / " + Math.min(...arr));
+
+var s = "Web Programming";
+function reverseString(str) { return str.split("").reverse().join(""); }
+function isPalindrome(str) { var t = str.toLowerCase(); return t === reverseString(t); }
+
+show("String", s);
+show("Length", s.length);
+show("Reversed string", reverseString(s));
+show("Upper / Lower", s.toUpperCase() + " / " + s.toLowerCase());
+show("Search 'gram'", s.indexOf("gram") !== -1 ? "Found at " + s.indexOf("gram") : "Not found");
+show("Concatenation", s.concat(" & UI Design"));
+show("Substring(0,3)", s.substring(0, 3));
+show("Replace", s.replace("Web", "Mobile"));
+show("Is 'Madam' palindrome?", isPalindrome("Madam"));</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS Arithmetic</title>
+<style>body{font-family:Arial;margin:20px} input,button,select{padding:6px;margin:4px} #out{margin-top:10px;padding:10px;background:#eef;border-radius:6px}</style>
+</head>
+<body>
+<h2>Arithmetic Operations</h2>
+<input type="number" id="a" placeholder="Number 1"> <input type="number" id="b" placeholder="Number 2">
+<button onclick="calculate()">Calculate</button>
+<div id="out"></div>
+<script>
+function calculate() {
+  var a = Number(document.getElementById("a").value);   // number data type
+  var b = Number(document.getElementById("b").value);
+  var name = "Result";                                  // string
+  var valid = !isNaN(a) && !isNaN(b);                   // boolean
+  let html = "<b>" + name + "</b><br>";
+  html += a + " + " + b + " = " + (a + b) + "<br>";
+  html += a + " - " + b + " = " + (a - b) + "<br>";
+  html += a + " * " + b + " = " + (a * b) + "<br>";
+  html += a + " / " + b + " = " + (b !== 0 ? (a / b).toFixed(2) : "Undefined") + "<br>";
+  html += a + " % " + b + " = " + (b !== 0 ? a % b : "Undefined") + "<br>";
+  html += a + " ** " + b + " = " + (a ** b) + "<br>";
+  html += "a > b : " + (a > b) + " | a == b : " + (a == b) + " | valid : " + valid + "<br>";
+  html += "typeof a = " + typeof a + ", typeof name = " + typeof name + ", typeof valid = " + typeof valid;
+  document.getElementById("out").innerHTML = html;
+}</script>
+</body>
+</html>

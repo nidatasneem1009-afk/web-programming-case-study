@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Photo Gallery</title>
+<style>
+  body{margin:0;font-family:Arial;background:#111;color:#fff}
+  h1{text-align:center;padding:20px}
+  .gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:15px}
+  .item{flex:1 1 250px;max-width:350px;position:relative;overflow:hidden;border-radius:10px}
+  .item img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .5s ease}
+  .item:hover img{transform:scale(1.15) rotate(2deg)}
+  .caption{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);padding:10px;text-align:center;
+           transform:translateY(100%);transition:transform .4s}
+  .item:hover .caption{transform:translateY(0)}
+</style>
+</head>
+<body>
+  <h1>My Photo Gallery</h1>
+  <div class="gallery">
+    <div class="item"><img src="https://picsum.photos/id/1015/400/300" alt="River"><div class="caption">River</div></div>
+    <div class="item"><img src="https://picsum.photos/id/1016/400/300" alt="Canyon"><div class="caption">Canyon</div></div>
+    <div class="item"><img src="https://picsum.photos/id/1018/400/300" alt="Mountain"><div class="caption">Mountain</div></div>
+    <div class="item"><img src="https://picsum.photos/id/1019/400/300" alt="Coast"><div class="caption">Coast</div></div>
+    <div class="item"><img src="https://picsum.photos/id/1020/400/300" alt="Bear"><div class="caption">Bear</div></div>
+    <div class="item"><img src="https://picsum.photos/id/1021/400/300" alt="Lake"><div class="caption">Lake</div></div>
+  </div>
+</body>
+</html>
